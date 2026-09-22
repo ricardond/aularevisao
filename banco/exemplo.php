@@ -3,13 +3,17 @@
 include "../config/conexao.php";
 
     // Insere o primeiro aluno na tabela alunos
-    
+    $pdo->exec("INSERT INTO alunos (nome, curso) VALUES ('João da Silva', 'Matemática')");
+
 
     // Busca todos os registros da tabela alunos
-    
+    $consulta = $pdo->query("SELECT * FROM alunos");
 
+ 
     // Converte o resultado da busca em um array associativo
-    
+    $alunos = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+
 
     // Percorre o array, lendo um aluno por vez
     foreach ($alunos as $aluno) {
